@@ -1,0 +1,25 @@
+#include<stdio.h>
+int firstoccurence(int *a,int n,int target)
+{
+	if(n==0)
+	return -1;
+	if(a[0]==target)
+	return 0;
+	//call by array
+	int i=firstoccurence(a+1,n-1,target);
+	if(i==-1)
+	return -1;
+	return i+1;
+}
+int main()
+{
+	int n,target;
+	scanf("%d%d",&n,&target);
+	int a[n];
+	for(int i=0;i<n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	int m=firstoccurence(a,n,target);
+	printf("%d",m);
+}
